@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# This is a script that takes two variables:
+# path to a scrapyard of Magic images and a
+# card name, and returns a path to an image file
+# with the card.
+
+cname=${2//\\/\*}
+cname=${cname//\//\*}
+cname=${cname//_/\*}
+full="$(find "$1" -iname "$cname\.full*" | head -n1)"
+[ -z "$full" ] && full="$(find "$1" -iname "*$cname*full*" | head -n1)"
+[ -z "$full" ] && full="$(find "$3" -iname "$cname\.jpg" | head -n1)"
+[ -z "$full" ] && full="$(find "$3" -iname "*$cname*jpg" | head -n1)"
+echo -n $full

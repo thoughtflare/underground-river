@@ -1,0 +1,3 @@
+#!/bin/sh
+
+mtgimg /home/sweater/mtg/images "$1" /home/sweater/mtg/images/Unzipped
